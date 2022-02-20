@@ -26,7 +26,11 @@ app.use(cookieParser());
 app.use(express.static(__dirname + "/public"));
 
 // ROUTES
+app.use("/api", require("./routes/api/api"));
+app.use("/admin", require("./routes/admin/admin"));
 app.get("/", (req, res) => {
-    res.send("Hello World");
+    res.redirect("https://github.com/theVedanta/kishore-api");
 });
-app.use("/image", require("./routes/image"));
+app.get("*", (req, res) => {
+    res.sendStatus(404);
+});
