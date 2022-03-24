@@ -1,8 +1,7 @@
 const router = require("express").Router();
 const axios = require("axios");
-const cors = require("cors");
 
-router.post("/upload", cors(), (req, res) => {
+router.post("/upload", (req, res) => {
     axios
         .post(
             "https://api.imgur.com/3/upload",
