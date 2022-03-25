@@ -1,14 +1,14 @@
 const mongoose = require("mongoose");
 
-const IndexSchema = new mongoose.Schema({
+const TheSchema = new mongoose.Schema({
     header: Object,
-    about: Object,
+    about: String,
     training: Object,
     consultancy: Object,
-    testimonials: Object,
-    contact: Object,
+    testimonials: Array,
+    contacts: Array,
 });
 
-const Index = mongoose.model("index", IndexSchema);
+const ToExport = mongoose.model("index", TheSchema);
 
-module.exports = Index;
+module.exports = ToExport;
