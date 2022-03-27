@@ -3,9 +3,8 @@ const mongoose = require("mongoose");
 const BlogSchema = new mongoose.Schema(
     {
         title: String,
-        imgs: Array,
+        category: String,
         content: String,
-        tags: Array,
     },
     { timestamps: true }
 );

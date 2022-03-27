@@ -14,7 +14,7 @@ router.post("/", async (req, res) => {
                 user.toJSON(),
                 process.env.JWT_SECRET,
                 {
-                    expiresIn: "24h",
+                    expiresIn: "7d",
                 }
             );
 
@@ -35,7 +35,7 @@ router.post("/validate", async (req, res) => {
             res.json({ done: false, message: "Invalid token" });
         } else {
             const userFound = await User.findOne({ username: user.username });
-            if (await bcrypt.compare(userFound.password, user.password)) {
+            if (user.password === userFound.password) {
                 res.json({ done: true });
             } else {
                 res.json({ done: false, message: "Password changed" });
